@@ -80,8 +80,6 @@ type ComposeServiceOperations interface {
 
 	ActionCancelupgrade(*ComposeService) (*Service, error)
 
-	ActionContinueupgrade(*ComposeService) (*Service, error)
-
 	ActionCreate(*ComposeService) (*Service, error)
 
 	ActionFinishupgrade(*ComposeService) (*Service, error)
@@ -144,15 +142,6 @@ func (c *ComposeServiceClient) ActionCancelupgrade(resource *ComposeService) (*S
 	resp := &Service{}
 
 	err := c.rancherClient.doAction(COMPOSE_SERVICE_TYPE, "cancelupgrade", &resource.Resource, nil, resp)
-
-	return resp, err
-}
-
-func (c *ComposeServiceClient) ActionContinueupgrade(resource *ComposeService) (*Service, error) {
-
-	resp := &Service{}
-
-	err := c.rancherClient.doAction(COMPOSE_SERVICE_TYPE, "continueupgrade", &resource.Resource, nil, resp)
 
 	return resp, err
 }

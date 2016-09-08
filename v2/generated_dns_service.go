@@ -78,8 +78,6 @@ type DnsServiceOperations interface {
 
 	ActionCancelupgrade(*DnsService) (*Service, error)
 
-	ActionContinueupgrade(*DnsService) (*Service, error)
-
 	ActionCreate(*DnsService) (*Service, error)
 
 	ActionDeactivate(*DnsService) (*Service, error)
@@ -163,15 +161,6 @@ func (c *DnsServiceClient) ActionCancelupgrade(resource *DnsService) (*Service, 
 	resp := &Service{}
 
 	err := c.rancherClient.doAction(DNS_SERVICE_TYPE, "cancelupgrade", &resource.Resource, nil, resp)
-
-	return resp, err
-}
-
-func (c *DnsServiceClient) ActionContinueupgrade(resource *DnsService) (*Service, error) {
-
-	resp := &Service{}
-
-	err := c.rancherClient.doAction(DNS_SERVICE_TYPE, "continueupgrade", &resource.Resource, nil, resp)
 
 	return resp, err
 }

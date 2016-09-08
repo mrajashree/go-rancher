@@ -76,8 +76,6 @@ type ExternalServiceOperations interface {
 
 	ActionCancelupgrade(*ExternalService) (*Service, error)
 
-	ActionContinueupgrade(*ExternalService) (*Service, error)
-
 	ActionCreate(*ExternalService) (*Service, error)
 
 	ActionDeactivate(*ExternalService) (*Service, error)
@@ -148,15 +146,6 @@ func (c *ExternalServiceClient) ActionCancelupgrade(resource *ExternalService) (
 	resp := &Service{}
 
 	err := c.rancherClient.doAction(EXTERNAL_SERVICE_TYPE, "cancelupgrade", &resource.Resource, nil, resp)
-
-	return resp, err
-}
-
-func (c *ExternalServiceClient) ActionContinueupgrade(resource *ExternalService) (*Service, error) {
-
-	resp := &Service{}
-
-	err := c.rancherClient.doAction(EXTERNAL_SERVICE_TYPE, "continueupgrade", &resource.Resource, nil, resp)
 
 	return resp, err
 }

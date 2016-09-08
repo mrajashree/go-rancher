@@ -9,10 +9,8 @@ type RancherClient struct {
 	AddRemoveLoadBalancerServiceLinkInput    AddRemoveLoadBalancerServiceLinkInputOperations
 	AddRemoveServiceLinkInput                AddRemoveServiceLinkInputOperations
 	Agent                                    AgentOperations
-	Amazonec2Config                          Amazonec2ConfigOperations
 	ApiKey                                   ApiKeyOperations
 	AuditLog                                 AuditLogOperations
-	AzureConfig                              AzureConfigOperations
 	Azureadconfig                            AzureadconfigOperations
 	Backup                                   BackupOperations
 	BackupTarget                             BackupTargetOperations
@@ -34,7 +32,6 @@ type RancherClient struct {
 	Credential                               CredentialOperations
 	Databasechangelog                        DatabasechangelogOperations
 	Databasechangeloglock                    DatabasechangeloglockOperations
-	DigitaloceanConfig                       DigitaloceanConfigOperations
 	DnsService                               DnsServiceOperations
 	DockerBuild                              DockerBuildOperations
 	DynamicSchema                            DynamicSchemaOperations
@@ -92,7 +89,6 @@ type RancherClient struct {
 	Network                                  NetworkOperations
 	NfsConfig                                NfsConfigOperations
 	Openldapconfig                           OpenldapconfigOperations
-	PacketConfig                             PacketConfigOperations
 	Password                                 PasswordOperations
 	PhysicalHost                             PhysicalHostOperations
 	Port                                     PortOperations
@@ -160,10 +156,8 @@ func constructClient() *RancherClient {
 	client.AddRemoveLoadBalancerServiceLinkInput = newAddRemoveLoadBalancerServiceLinkInputClient(client)
 	client.AddRemoveServiceLinkInput = newAddRemoveServiceLinkInputClient(client)
 	client.Agent = newAgentClient(client)
-	client.Amazonec2Config = newAmazonec2ConfigClient(client)
 	client.ApiKey = newApiKeyClient(client)
 	client.AuditLog = newAuditLogClient(client)
-	client.AzureConfig = newAzureConfigClient(client)
 	client.Azureadconfig = newAzureadconfigClient(client)
 	client.Backup = newBackupClient(client)
 	client.BackupTarget = newBackupTargetClient(client)
@@ -185,7 +179,6 @@ func constructClient() *RancherClient {
 	client.Credential = newCredentialClient(client)
 	client.Databasechangelog = newDatabasechangelogClient(client)
 	client.Databasechangeloglock = newDatabasechangeloglockClient(client)
-	client.DigitaloceanConfig = newDigitaloceanConfigClient(client)
 	client.DnsService = newDnsServiceClient(client)
 	client.DockerBuild = newDockerBuildClient(client)
 	client.DynamicSchema = newDynamicSchemaClient(client)
@@ -243,7 +236,6 @@ func constructClient() *RancherClient {
 	client.Network = newNetworkClient(client)
 	client.NfsConfig = newNfsConfigClient(client)
 	client.Openldapconfig = newOpenldapconfigClient(client)
-	client.PacketConfig = newPacketConfigClient(client)
 	client.Password = newPasswordClient(client)
 	client.PhysicalHost = newPhysicalHostClient(client)
 	client.Port = newPortClient(client)

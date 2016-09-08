@@ -94,8 +94,6 @@ type LoadBalancerServiceOperations interface {
 
 	ActionCancelupgrade(*LoadBalancerService) (*Service, error)
 
-	ActionContinueupgrade(*LoadBalancerService) (*Service, error)
-
 	ActionCreate(*LoadBalancerService) (*Service, error)
 
 	ActionDeactivate(*LoadBalancerService) (*Service, error)
@@ -179,15 +177,6 @@ func (c *LoadBalancerServiceClient) ActionCancelupgrade(resource *LoadBalancerSe
 	resp := &Service{}
 
 	err := c.rancherClient.doAction(LOAD_BALANCER_SERVICE_TYPE, "cancelupgrade", &resource.Resource, nil, resp)
-
-	return resp, err
-}
-
-func (c *LoadBalancerServiceClient) ActionContinueupgrade(resource *LoadBalancerService) (*Service, error) {
-
-	resp := &Service{}
-
-	err := c.rancherClient.doAction(LOAD_BALANCER_SERVICE_TYPE, "continueupgrade", &resource.Resource, nil, resp)
 
 	return resp, err
 }

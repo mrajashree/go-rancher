@@ -68,8 +68,6 @@ type KubernetesServiceOperations interface {
 
 	ActionCancelupgrade(*KubernetesService) (*Service, error)
 
-	ActionContinueupgrade(*KubernetesService) (*Service, error)
-
 	ActionCreate(*KubernetesService) (*Service, error)
 
 	ActionDeactivate(*KubernetesService) (*Service, error)
@@ -153,15 +151,6 @@ func (c *KubernetesServiceClient) ActionCancelupgrade(resource *KubernetesServic
 	resp := &Service{}
 
 	err := c.rancherClient.doAction(KUBERNETES_SERVICE_TYPE, "cancelupgrade", &resource.Resource, nil, resp)
-
-	return resp, err
-}
-
-func (c *KubernetesServiceClient) ActionContinueupgrade(resource *KubernetesService) (*Service, error) {
-
-	resp := &Service{}
-
-	err := c.rancherClient.doAction(KUBERNETES_SERVICE_TYPE, "continueupgrade", &resource.Resource, nil, resp)
 
 	return resp, err
 }
