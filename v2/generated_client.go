@@ -8,10 +8,8 @@ type RancherClient struct {
 	AddOutputsInput                          AddOutputsInputOperations
 	AddRemoveServiceLinkInput                AddRemoveServiceLinkInputOperations
 	Agent                                    AgentOperations
-	Amazonec2Config                          Amazonec2ConfigOperations
 	ApiKey                                   ApiKeyOperations
 	AuditLog                                 AuditLogOperations
-	AzureConfig                              AzureConfigOperations
 	Azureadconfig                            AzureadconfigOperations
 	Backup                                   BackupOperations
 	BackupTarget                             BackupTargetOperations
@@ -36,7 +34,6 @@ type RancherClient struct {
 	Databasechangelog                        DatabasechangelogOperations
 	Databasechangeloglock                    DatabasechangeloglockOperations
 	DefaultNetwork                           DefaultNetworkOperations
-	DigitaloceanConfig                       DigitaloceanConfigOperations
 	DnsService                               DnsServiceOperations
 	DockerBuild                              DockerBuildOperations
 	DynamicSchema                            DynamicSchemaOperations
@@ -54,6 +51,7 @@ type RancherClient struct {
 	ExternalStoragePoolEvent                 ExternalStoragePoolEventOperations
 	ExternalVolumeEvent                      ExternalVolumeEventOperations
 	FieldDocumentation                       FieldDocumentationOperations
+	GenericObject                            GenericObjectOperations
 	HaConfig                                 HaConfigOperations
 	HaConfigInput                            HaConfigInputOperations
 	HealthcheckInstanceHostMap               HealthcheckInstanceHostMapOperations
@@ -70,7 +68,6 @@ type RancherClient struct {
 	InstanceLink                             InstanceLinkOperations
 	InstanceStop                             InstanceStopOperations
 	IpAddress                                IpAddressOperations
-	IpAddressAssociateInput                  IpAddressAssociateInputOperations
 	KubernetesService                        KubernetesServiceOperations
 	KubernetesStack                          KubernetesStackOperations
 	KubernetesStackUpgrade                   KubernetesStackUpgradeOperations
@@ -86,12 +83,12 @@ type RancherClient struct {
 	Machine                                  MachineOperations
 	MachineDriver                            MachineDriverOperations
 	Mount                                    MountOperations
+	MountEntry                               MountEntryOperations
 	Network                                  NetworkOperations
 	NetworkDriver                            NetworkDriverOperations
 	NetworkDriverService                     NetworkDriverServiceOperations
 	NfsConfig                                NfsConfigOperations
 	Openldapconfig                           OpenldapconfigOperations
-	PacketConfig                             PacketConfigOperations
 	Password                                 PasswordOperations
 	PhysicalHost                             PhysicalHostOperations
 	Port                                     PortOperations
@@ -167,10 +164,8 @@ func constructClient(rancherBaseClient *RancherBaseClientImpl) *RancherClient {
 	client.AddOutputsInput = newAddOutputsInputClient(client)
 	client.AddRemoveServiceLinkInput = newAddRemoveServiceLinkInputClient(client)
 	client.Agent = newAgentClient(client)
-	client.Amazonec2Config = newAmazonec2ConfigClient(client)
 	client.ApiKey = newApiKeyClient(client)
 	client.AuditLog = newAuditLogClient(client)
-	client.AzureConfig = newAzureConfigClient(client)
 	client.Azureadconfig = newAzureadconfigClient(client)
 	client.Backup = newBackupClient(client)
 	client.BackupTarget = newBackupTargetClient(client)
@@ -195,7 +190,6 @@ func constructClient(rancherBaseClient *RancherBaseClientImpl) *RancherClient {
 	client.Databasechangelog = newDatabasechangelogClient(client)
 	client.Databasechangeloglock = newDatabasechangeloglockClient(client)
 	client.DefaultNetwork = newDefaultNetworkClient(client)
-	client.DigitaloceanConfig = newDigitaloceanConfigClient(client)
 	client.DnsService = newDnsServiceClient(client)
 	client.DockerBuild = newDockerBuildClient(client)
 	client.DynamicSchema = newDynamicSchemaClient(client)
@@ -213,6 +207,7 @@ func constructClient(rancherBaseClient *RancherBaseClientImpl) *RancherClient {
 	client.ExternalStoragePoolEvent = newExternalStoragePoolEventClient(client)
 	client.ExternalVolumeEvent = newExternalVolumeEventClient(client)
 	client.FieldDocumentation = newFieldDocumentationClient(client)
+	client.GenericObject = newGenericObjectClient(client)
 	client.HaConfig = newHaConfigClient(client)
 	client.HaConfigInput = newHaConfigInputClient(client)
 	client.HealthcheckInstanceHostMap = newHealthcheckInstanceHostMapClient(client)
@@ -229,7 +224,6 @@ func constructClient(rancherBaseClient *RancherBaseClientImpl) *RancherClient {
 	client.InstanceLink = newInstanceLinkClient(client)
 	client.InstanceStop = newInstanceStopClient(client)
 	client.IpAddress = newIpAddressClient(client)
-	client.IpAddressAssociateInput = newIpAddressAssociateInputClient(client)
 	client.KubernetesService = newKubernetesServiceClient(client)
 	client.KubernetesStack = newKubernetesStackClient(client)
 	client.KubernetesStackUpgrade = newKubernetesStackUpgradeClient(client)
@@ -245,12 +239,12 @@ func constructClient(rancherBaseClient *RancherBaseClientImpl) *RancherClient {
 	client.Machine = newMachineClient(client)
 	client.MachineDriver = newMachineDriverClient(client)
 	client.Mount = newMountClient(client)
+	client.MountEntry = newMountEntryClient(client)
 	client.Network = newNetworkClient(client)
 	client.NetworkDriver = newNetworkDriverClient(client)
 	client.NetworkDriverService = newNetworkDriverServiceClient(client)
 	client.NfsConfig = newNfsConfigClient(client)
 	client.Openldapconfig = newOpenldapconfigClient(client)
-	client.PacketConfig = newPacketConfigClient(client)
 	client.Password = newPasswordClient(client)
 	client.PhysicalHost = newPhysicalHostClient(client)
 	client.Port = newPortClient(client)
