@@ -379,6 +379,7 @@ func (rancherClient *RancherBaseClientImpl) doModify(method string, url string, 
 
 	defer resp.Body.Close()
 
+	fmt.Printf("resp : %v\n", resp)
 	if resp.StatusCode >= 300 {
 		return newApiError(resp, url)
 	}
